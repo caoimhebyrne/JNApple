@@ -1,6 +1,7 @@
 plugins {
     java
     id("java-library")
+    id("maven-publish")
 }
 
 group = "net.iridescentsoftware.jnapple"
@@ -20,4 +21,12 @@ dependencies {
 
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
 }
