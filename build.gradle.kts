@@ -3,7 +3,7 @@ plugins {
     id("java-library")
 }
 
-group = "com.iridescentsoftware.jnapple"
+group = "net.iridescentsoftware.jnapple"
 version = "0.1.0"
 
 repositories {

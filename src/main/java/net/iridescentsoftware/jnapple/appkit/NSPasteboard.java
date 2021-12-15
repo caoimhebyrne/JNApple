@@ -1,10 +1,10 @@
-package com.iridescentsoftware.jnapple.appkit;
+package net.iridescentsoftware.jnapple.appkit;
 
-import com.iridescentsoftware.jnapple.foundation.Foundation;
-import com.iridescentsoftware.jnapple.foundation.NSObject;
-import com.iridescentsoftware.jnapple.foundation.NSString;
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
+import net.iridescentsoftware.jnapple.foundation.Foundation;
+import net.iridescentsoftware.jnapple.foundation.NSObject;
+import net.iridescentsoftware.jnapple.foundation.NSString;
 
 public class NSPasteboard extends NSObject {
     // The equivalent of NSPasteboardTypeString

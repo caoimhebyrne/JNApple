@@ -1,14 +1,14 @@
-package com.iridescentsoftware.jnapple.test.foundation;
+package net.iridescentsoftware.jnapple.test.foundation;
 
-import com.iridescentsoftware.jnapple.foundation.NSString;
+import net.iridescentsoftware.jnapple.foundation.NSString;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test class for {@link com.iridescentsoftware.jnapple.foundation.NSString}.
+ * Test class for {@link NSString}.
  */
 public class NSStringTest {
     /**
-     * Test method for {@link com.iridescentsoftware.jnapple.foundation.NSString#NSString(java.lang.String)}.
+     * Test method for {@link NSString#NSString(java.lang.String)}.
      * Ensures that the CFString's length is 0 when "" is passed to the constructor.
      */
     @Test
@@ -18,7 +18,7 @@ public class NSStringTest {
     }
 
     /**
-     * Test method for {@link com.iridescentsoftware.jnapple.foundation.NSString#NSString(java.lang.String)}.
+     * Test method for {@link NSString#NSString(java.lang.String)}.
      * Ensures that the CFString's length is 0 when null is passed to the constructor.
      */
     @Test
@@ -28,7 +28,7 @@ public class NSStringTest {
     }
 
     /**
-     * Test method for {@link com.iridescentsoftware.jnapple.foundation.NSString#NSString(java.lang.String)}.
+     * Test method for {@link NSString#NSString(java.lang.String)}.
      * Ensures that the CFString's length is 5 when "Hello" is passed to the constructor.
      */
     @Test

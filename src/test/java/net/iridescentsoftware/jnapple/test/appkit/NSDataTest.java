@@ -1,14 +1,14 @@
-package com.iridescentsoftware.jnapple.test.appkit;
+package net.iridescentsoftware.jnapple.test.appkit;
 
-import com.iridescentsoftware.jnapple.appkit.NSData;
+import net.iridescentsoftware.jnapple.appkit.NSData;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test class for {@link com.iridescentsoftware.jnapple.appkit.NSData}.
+ * Test class for {@link NSData}.
  */
 class NSDataTest {
     /**
-     * Test method for {@link com.iridescentsoftware.jnapple.appkit.NSData#initWithBytes(byte[])}.
+     * Test method for {@link NSData#initWithBytes(byte[])}.
      * Ensures that the correct length for a byte array is returned.
      */
     @Test
@@ -18,7 +18,7 @@ class NSDataTest {
     }
 
     /**
-     * Test method for {@link com.iridescentsoftware.jnapple.appkit.NSData#initWithBytes(byte[])}.
+     * Test method for {@link NSData#initWithBytes(byte[])}.
      * Ensures that 0 for a null byte array is returned.
      */
     @Test
