@@ -34,7 +34,8 @@ public class NSSavePanel extends NSObject {
      *
      * @see <a href="https://developer.apple.com/documentation/appkit/nssavepanel/1525357-runmodal?language=objc"></a>
      */
-    public void runModal() {
-        Foundation.INSTANCE.objc_msgSend(getId(), runModalPointer);
+    public NSAlert.NSModalResponse runModal() {
+        var value = Foundation.INSTANCE.objc_msgSend(getId(), runModalPointer).intValue();
+        return NSAlert.NSModalResponse.from(value);
     }
 }
