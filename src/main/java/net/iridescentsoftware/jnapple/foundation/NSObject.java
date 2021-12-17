@@ -11,6 +11,9 @@ import java.lang.ref.Cleaner;
 public class NSObject {
     private static final NativeLong nullPointer = new NativeLong(0L);
 
+    // [NSObject description]; -> https://developer.apple.com/documentation/objectivec/1418956-nsobject/1418746-description
+    private static final Pointer descriptionSelector = Foundation.INSTANCE.sel_registerName("description");
+
     private final NativeLong id;
 
     public NSObject(NativeLong id) {
@@ -22,12 +25,26 @@ public class NSObject {
      *
      * @return null pointer if the object is null, otherwise the identifier
      */
-    public final NativeLong getId() {
+    public NativeLong getId() {
         return id;
+    }
+
+    /**
+     * A textual representation of the receiver
+     *
+     * @return A string that describes the object
+     */
+    public NSString getDescription() {
+        return new NSString(Foundation.INSTANCE.objc_msgSend(id, descriptionSelector));
     }
 
     public boolean isNull() {
         return id.equals(nullPointer);
+    }
+
+    @Override
+    public String toString() {
+        return getDescription().getJvmString();
     }
 
     /**
