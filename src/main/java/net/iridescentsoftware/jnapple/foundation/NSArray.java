@@ -6,7 +6,7 @@ import com.sun.jna.Pointer;
 /**
  * A reference to an NSArray object, which is a 'static array' that can not be modified.
  */
-public class NSArray extends NSObject {
+public class NSArray<T extends NSObject> extends NSObject {
     // NSArray -> https://developer.apple.com/documentation/foundation/nsarray?language=objc
     private static final Pointer nativeClass = Foundation.INSTANCE.objc_getClass("NSArray");
 
@@ -25,8 +25,14 @@ public class NSArray extends NSObject {
     // [NSArray objectAtIndex:]; -> https://developer.apple.com/documentation/foundation/nsarray/1417555-objectatindex?language=objc
     private static final Pointer objectAtIndexSelector = Foundation.INSTANCE.sel_registerName("objectAtIndex:");
 
-    public NSArray(NativeLong id) {
+    /**
+     * A reference to the class which is used for creating new instances when retrieving objects
+     */
+    private final Class<T> clazz;
+
+    public NSArray(NativeLong id, Class<T> clazz) {
         super(id);
+        this.clazz = clazz;
     }
 
     /**
@@ -34,8 +40,8 @@ public class NSArray extends NSObject {
      *
      * @return An empty NSArray instance.
      */
-    public static NSArray array() {
-        return new NSArray(Foundation.INSTANCE.objc_msgSend(nativeClass, arraySelector));
+    public static NSArray<NSObject> array() {
+        return new NSArray<>(Foundation.INSTANCE.objc_msgSend(nativeClass, arraySelector), NSObject.class);
     }
 
     /**
@@ -50,8 +56,15 @@ public class NSArray extends NSObject {
      *
      * @return If the array is empty, returns null, otherwise an NSObject instance.
      */
-    public NSObject firstObject() {
-        return new NSObject(Foundation.INSTANCE.objc_msgSend(getId(), firstObjectSelector));
+    public T firstObject() {
+        var pointer = Foundation.INSTANCE.objc_msgSend(getId(), firstObjectSelector).longValue();
+        try {
+            return clazz.getDeclaredConstructor(NativeLong.class).newInstance(new NativeLong(pointer));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     /**
@@ -59,8 +72,15 @@ public class NSArray extends NSObject {
      *
      * @return If the array is empty, returns null, otherwise an NSObject instance.
      */
-    public NSObject lastObject() {
-        return new NSObject(Foundation.INSTANCE.objc_msgSend(getId(), lastObjectSelector));
+    public T lastObject() {
+        var pointer = Foundation.INSTANCE.objc_msgSend(getId(), lastObjectSelector).longValue();
+        try {
+            return clazz.getDeclaredConstructor(NativeLong.class).newInstance(new NativeLong(pointer));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     /**
@@ -73,7 +93,14 @@ public class NSArray extends NSObject {
      * @return If the array is empty, returns null, otherwise the NSObject instance located at the index.
      * @see <a href="https://developer.apple.com/documentation/foundation/nsarray/1417555-objectatindex?language=objc"></a>
      */
-    public NSObject objectAtIndex(int index) {
-        return new NSObject(Foundation.INSTANCE.objc_msgSend(getId(), objectAtIndexSelector, index));
+    public T objectAtIndex(int index) {
+        var pointer = Foundation.INSTANCE.objc_msgSend(getId(), objectAtIndexSelector, index).longValue();
+        try {
+            return clazz.getDeclaredConstructor(NativeLong.class).newInstance(new NativeLong(pointer));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }
