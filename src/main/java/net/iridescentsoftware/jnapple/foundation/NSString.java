@@ -46,7 +46,7 @@ public class NSString extends NSObject.Releasable {
 
     @Override
     public String toString() {
-        return getJVMString();
+        return getJvmString();
     }
 
     /**
@@ -54,7 +54,7 @@ public class NSString extends NSObject.Releasable {
      *
      * @return the NSString converted to String
      */
-    public String getJVMString() {
+    public String getJvmString() {
         return getCFStringRef().stringValue();
     }
 
