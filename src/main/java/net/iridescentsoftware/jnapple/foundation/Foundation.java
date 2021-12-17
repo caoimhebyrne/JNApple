@@ -26,6 +26,9 @@ public interface Foundation extends Library {
     // void objc_msgSend(*); -> https://developer.apple.com/documentation/objectivec/1456712-objc_msgsend?language=objc
     NativeLong objc_msgSend(NativeLong receiver, Pointer selector, NativeLong arg1);
 
+    // void objc_msgSend(*); -> https://developer.apple.com/documentation/objectivec/1456712-objc_msgsend?language=objc
+    NativeLong objc_msgSend(NativeLong id, Pointer setCanChooseFilesPointer, boolean arg1);
+
     // id objc_getClass(const char* name); -> https://developer.apple.com/documentation/objectivec/1418952-objc_getclass?language=objc
     Pointer objc_getClass(String className);
 
