@@ -34,11 +34,6 @@ public class NSURL extends NSObject.Releasable {
         super(Foundation.INSTANCE.objc_msgSend(nativeClass, urlWithStringSelector, new NSString(url).getId()));
     }
 
-    @Override
-    public String toString() {
-        return getAbsoluteString().getJvmString();
-    }
-
     /**
      * Returns a Java {@link URL} from an NSURL instance
      *

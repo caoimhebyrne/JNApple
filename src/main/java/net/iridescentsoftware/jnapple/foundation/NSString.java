@@ -44,11 +44,6 @@ public class NSString extends NSObject.Releasable {
         return Foundation.INSTANCE.objc_msgSend(nativeClass, stringWithUTF8StringSelector, javaString);
     }
 
-    @Override
-    public String toString() {
-        return getJvmString();
-    }
-
     /**
      * Returns a Java {@link String} from an NSString instance
      *
