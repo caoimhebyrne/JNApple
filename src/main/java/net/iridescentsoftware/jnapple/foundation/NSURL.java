@@ -1,5 +1,6 @@
 package net.iridescentsoftware.jnapple.foundation;
 
+import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
 
 import java.net.MalformedURLException;
@@ -18,6 +19,10 @@ public class NSURL extends NSObject.Releasable {
 
     // [NSURL absoluteString]; -> https://developer.apple.com/documentation/foundation/nsurl/1409868-absolutestring?language=objc
     private static final Pointer absoluteStringSelector = Foundation.INSTANCE.sel_registerName("absoluteString");
+
+    public NSURL(NativeLong id) {
+        super(id);
+    }
 
     /**
      * Creates and returns an NSURL object initialized with a provided URL string.
