@@ -63,7 +63,7 @@ public class NSObject {
 
             @Override
             public void run() {
-                if (System.getProperty("cbyrne.jna.debug").equals("true"))
+                if (System.getProperty("iridescentsoftware.jnapple.debug").equals("true"))
                     System.out.println("[d] Cleaning up NSObject: " + id);
 
                 Foundation.INSTANCE.objc_msgSend(id, releaseSelector);
