@@ -6,15 +6,18 @@ import net.iridescentsoftware.jnapple.foundation.Foundation;
 import net.iridescentsoftware.jnapple.foundation.NSArray;
 import net.iridescentsoftware.jnapple.foundation.NSURL;
 
-public class NSOpenPanel extends NSSavePanel {
+public class NSOpenPanel extends NSFilePanel {
     // NSOpenPanel -> https://developer.apple.com/documentation/appkit/nsopenpanel?language=objc
     private static final Pointer nativeClass = Foundation.INSTANCE.objc_getClass("NSOpenPanel");
 
     // [NSOpenPanel openPanel] -> https://developer.apple.com/documentation/appkit/nsopenpanel/1584365-openpanel?language=objc;
-    private static final Pointer openPanelPointer = Foundation.INSTANCE.sel_registerName("openPanel");
+    private static final Pointer openPanelSelector = Foundation.INSTANCE.sel_registerName("openPanel");
 
     // [NSOpenPanel setCanChooseFiles:] -> https://developer.apple.com/documentation/appkit/nsopenpanel/1527060-canchoosefiles?language=objc
-    private static final Pointer setCanChooseFilesPointer = Foundation.INSTANCE.sel_registerName("setCanChooseFiles:");
+    private static final Pointer setCanChooseFilesSelector = Foundation.INSTANCE.sel_registerName("setCanChooseFiles:");
+
+    // [NSOpenPanel setCanChooseFiles:] -> https://developer.apple.com/documentation/appkit/nsopenpanel/1527060-canchoosefiles?language=objc
+    private static final Pointer setAllowsMultipleSelectionSelector = Foundation.INSTANCE.sel_registerName("setAllowsMultipleSelection:");
 
     // [NSOpenPanel URLs] -> https://developer.apple.com/documentation/appkit/nsopenpanel/1529845-urls?language=objc
     private static final Pointer urlsSelector = Foundation.INSTANCE.sel_registerName("URLs");
@@ -29,7 +32,7 @@ public class NSOpenPanel extends NSSavePanel {
      * @see <a href="https://developer.apple.com/documentation/appkit/nsopenpanel/1584365-openpanel?language=objc"></a>
      */
     public static NSOpenPanel openPanel() {
-        return new NSOpenPanel(Foundation.INSTANCE.objc_msgSend(nativeClass, openPanelPointer));
+        return new NSOpenPanel(Foundation.INSTANCE.objc_msgSend(nativeClass, openPanelSelector));
     }
 
     /**
@@ -38,8 +41,18 @@ public class NSOpenPanel extends NSSavePanel {
      *
      * @see <a href="https://developer.apple.com/documentation/appkit/nsopenpanel/1527060-canchoosefiles?language=objc"></a>
      */
-    public void setSetCanChooseFiles(boolean canChooseFiles) {
-        Foundation.INSTANCE.objc_msgSend(getId(), setCanChooseFilesPointer, canChooseFiles);
+    public void setCanChooseFiles(boolean canChooseFiles) {
+        Foundation.INSTANCE.objc_msgSend(getId(), setCanChooseFilesSelector, canChooseFiles);
+    }
+
+    /**
+     * Whether the user may select multiple files and directories.
+     * When the value of this property is `true`, the user may select multiple items from the browser.
+     *
+     * @see <a href="https://developer.apple.com/documentation/appkit/nsopenpanel/1530786-allowsmultipleselection?language=objc">Apple Documentation</a>
+     */
+    public void setAllowsMultipleSelection(boolean allowsMultipleSelection) {
+        Foundation.INSTANCE.objc_msgSend(getId(), setAllowsMultipleSelectionSelector, allowsMultipleSelection);
     }
 
     /**
