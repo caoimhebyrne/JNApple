@@ -1,4 +1,4 @@
-package net.iridescentsoftware.jnapple.foundation;
+package dev.cbyrne.jnapple.foundation;
 
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;

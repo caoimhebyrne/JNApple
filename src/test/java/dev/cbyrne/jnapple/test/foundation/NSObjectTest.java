@@ -1,7 +1,7 @@
-package net.iridescentsoftware.jnapple.test.foundation;
+package dev.cbyrne.jnapple.test.foundation;
 
 import com.sun.jna.NativeLong;
-import net.iridescentsoftware.jnapple.foundation.NSObject;
+import dev.cbyrne.jnapple.foundation.NSObject;
 import org.junit.jupiter.api.Test;
 
 /**

@@ -1,10 +1,10 @@
-package net.iridescentsoftware.jnapple.test.appkit;
+package dev.cbyrne.jnapple.test.appkit;
 
-import net.iridescentsoftware.jnapple.appkit.NSWorkspace;
-import net.iridescentsoftware.jnapple.foundation.NSURL;
+import dev.cbyrne.jnapple.appkit.NSWorkspace;
+import dev.cbyrne.jnapple.foundation.NSURL;
 import org.junit.jupiter.api.Test;
 
-class NSWorkspaceTest {
+class   NSWorkspaceTest {
     @Test
     public void testOpenURL() {
         var url = new NSURL("https://cbyrne.dev");

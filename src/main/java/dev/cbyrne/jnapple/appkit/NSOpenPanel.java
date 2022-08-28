@@ -1,10 +1,10 @@
-package net.iridescentsoftware.jnapple.appkit;
+package dev.cbyrne.jnapple.appkit;
 
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
-import net.iridescentsoftware.jnapple.foundation.Foundation;
-import net.iridescentsoftware.jnapple.foundation.NSArray;
-import net.iridescentsoftware.jnapple.foundation.NSURL;
+import dev.cbyrne.jnapple.foundation.Foundation;
+import dev.cbyrne.jnapple.foundation.NSArray;
+import dev.cbyrne.jnapple.foundation.NSURL;
 
 public class NSOpenPanel extends NSFilePanel {
     // NSOpenPanel -> https://developer.apple.com/documentation/appkit/nsopenpanel?language=objc
@@ -59,7 +59,7 @@ public class NSOpenPanel extends NSFilePanel {
      * An array of URLs, each of which contains the fully specified location of a selected file or directory.
      * This property contains a valid value when the user selects one item or multiple items.
      *
-     * @return An NSArray of @{@link net.iridescentsoftware.jnapple.foundation.NSURL}.
+     * @return An NSArray of @{@link NSURL}.
      */
     public NSArray<NSURL> getURLs() {
         return new NSArray<>(Foundation.INSTANCE.objc_msgSend(getId(), urlsSelector), NSURL.class);

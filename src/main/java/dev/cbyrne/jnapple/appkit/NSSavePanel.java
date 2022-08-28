@@ -1,10 +1,10 @@
-package net.iridescentsoftware.jnapple.appkit;
+package dev.cbyrne.jnapple.appkit;
 
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
-import net.iridescentsoftware.jnapple.foundation.Foundation;
-import net.iridescentsoftware.jnapple.foundation.NSObject;
-import net.iridescentsoftware.jnapple.foundation.NSURL;
+import dev.cbyrne.jnapple.foundation.Foundation;
+import dev.cbyrne.jnapple.foundation.NSObject;
+import dev.cbyrne.jnapple.foundation.NSURL;
 
 /**
  * This is an abstraction of some of the methods from NSSavePanel.

@@ -1,6 +1,6 @@
-package net.iridescentsoftware.jnapple.test.foundation;
+package dev.cbyrne.jnapple.test.foundation;
 
-import net.iridescentsoftware.jnapple.foundation.NSURL;
+import dev.cbyrne.jnapple.foundation.NSURL;
 import org.junit.jupiter.api.Test;
 
 import java.net.MalformedURLException;

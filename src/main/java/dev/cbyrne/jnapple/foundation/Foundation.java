@@ -1,4 +1,4 @@
-package net.iridescentsoftware.jnapple.foundation;
+package dev.cbyrne.jnapple.foundation;
 
 import com.sun.jna.Library;
 import com.sun.jna.Native;

@@ -1,6 +1,6 @@
-package net.iridescentsoftware.jnapple.test.foundation;
+package dev.cbyrne.jnapple.test.foundation;
 
-import net.iridescentsoftware.jnapple.foundation.NSArray;
+import dev.cbyrne.jnapple.foundation.NSArray;
 import org.junit.jupiter.api.Test;
 
 /**
