@@ -4,7 +4,7 @@ plugins {
     id("maven-publish")
 }
 
-group = "net.iridescentsoftware.jnapple"
+group = "dev.cbyrne"
 version = "0.1.0"
 
 repositories {
@@ -12,11 +12,11 @@ repositories {
 }
 
 dependencies {
-    api("net.java.dev.jna:jna:5.10.0")
-    api("net.java.dev.jna:jna-platform:5.10.0")
+    api("net.java.dev.jna:jna:5.12.1")
+    api("net.java.dev.jna:jna-platform:5.12.1")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
 }
 
 tasks.getByName<Test>("test") {

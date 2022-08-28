@@ -5,7 +5,7 @@
 ## Usage
 
 These are just some common examples, for a wider range, check out
-our [tests](https://github.com/IridescentSoftware/JNApple/tree/main/src/test/java/net/iridescentsoftware/jnapple/test).
+our [tests](https://github.com/cbyrneee/JNApple/tree/main/src/test/java/dev/cbyrne/jnapple/test).
 
 **Creating an NSString**
 
@@ -17,7 +17,7 @@ var str = new NSString("Hello, World!");
 **Creating an NSURL**
 
 ```java
-var str = new NSURL("https://iridescentsoftware.net");
+var str = new NSURL("https://cbyrne.dev");
 // You can access this as a Java URL if you wish too! (NSURL#getJvmURL)
 ```
 

@@ -1,6 +1,6 @@
-package net.iridescentsoftware.jnapple.test.appkit;
+package dev.cbyrne.jnapple.test.appkit;
 
-import net.iridescentsoftware.jnapple.appkit.NSData;
+import dev.cbyrne.jnapple.appkit.NSData;
 import org.junit.jupiter.api.Test;
 
 /**

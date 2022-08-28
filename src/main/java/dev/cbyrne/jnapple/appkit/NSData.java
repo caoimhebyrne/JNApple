@@ -1,9 +1,9 @@
-package net.iridescentsoftware.jnapple.appkit;
+package dev.cbyrne.jnapple.appkit;
 
 import com.sun.jna.NativeLong;
 import com.sun.jna.Pointer;
-import net.iridescentsoftware.jnapple.foundation.Foundation;
-import net.iridescentsoftware.jnapple.foundation.NSObject;
+import dev.cbyrne.jnapple.foundation.Foundation;
+import dev.cbyrne.jnapple.foundation.NSObject;
 
 public class NSData extends NSObject.Releasable {
     // NSData -> https://developer.apple.com/documentation/foundation/NSData?language=objc

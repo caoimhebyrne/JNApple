@@ -1,4 +1,4 @@
-package net.iridescentsoftware.jnapple.appkit;
+package dev.cbyrne.jnapple.appkit;
 
 public class NSAlert {
     public enum NSModalResponse {
