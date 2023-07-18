@@ -32,9 +32,9 @@ public class NSHost extends NSObject {
      * @return null if objc_msgSend returns 0, otherwise an NSString instance
      */
     public NSString getName() {
-        var nativeResult = Foundation.INSTANCE.objc_msgSend(getId(), nameSelector);
+        NativeLong nativeResult = Foundation.INSTANCE.objc_msgSend(getId(), nameSelector);
 
-        var result = nativeResult.longValue();
+        long result = nativeResult.longValue();
         return result != 0 ? new NSString(nativeResult) : null;
     }
 }

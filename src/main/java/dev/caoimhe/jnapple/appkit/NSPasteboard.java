@@ -44,7 +44,7 @@ public class NSPasteboard extends NSObject {
 
     // https://developer.apple.com/documentation/appkit/nspasteboard/1528225-setstring?language=objc
     public void setString(String string, NSString type) {
-        var nativeString = new NSString(string);
+        NSString nativeString = new NSString(string);
         Foundation.INSTANCE.objc_msgSend(getId(), setStringForTypeSelector, nativeString.getId(), type.getId());
     }
 
@@ -54,16 +54,16 @@ public class NSPasteboard extends NSObject {
     }
 
     public NSString getString(NSString type) {
-        var nativeResult = Foundation.INSTANCE.objc_msgSend(getId(), stringForTypeSelector, type.getId());
+        NativeLong nativeResult = Foundation.INSTANCE.objc_msgSend(getId(), stringForTypeSelector, type.getId());
 
-        var result = nativeResult.longValue();
+        long result = nativeResult.longValue();
         return result != 0 ? new NSString(nativeResult) : null;
     }
 
     public NSData getDataForType(NSString type) {
-        var nativeResult = Foundation.INSTANCE.objc_msgSend(getId(), dataForTypeSelector, type.getId());
+        NativeLong nativeResult = Foundation.INSTANCE.objc_msgSend(getId(), dataForTypeSelector, type.getId());
 
-        var result = nativeResult.longValue();
+        long result = nativeResult.longValue();
         return result != 0 ? new NSData(nativeResult) : null;
     }
 

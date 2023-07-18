@@ -57,7 +57,7 @@ public class NSArray<T extends NSObject> extends NSObject {
      * @return If the array is empty, returns null, otherwise an NSObject instance.
      */
     public T firstObject() {
-        var pointer = Foundation.INSTANCE.objc_msgSend(getId(), firstObjectSelector).longValue();
+        long pointer = Foundation.INSTANCE.objc_msgSend(getId(), firstObjectSelector).longValue();
         try {
             return clazz.getDeclaredConstructor(NativeLong.class).newInstance(new NativeLong(pointer));
         } catch (Exception e) {
@@ -73,7 +73,7 @@ public class NSArray<T extends NSObject> extends NSObject {
      * @return If the array is empty, returns null, otherwise an NSObject instance.
      */
     public T lastObject() {
-        var pointer = Foundation.INSTANCE.objc_msgSend(getId(), lastObjectSelector).longValue();
+        long pointer = Foundation.INSTANCE.objc_msgSend(getId(), lastObjectSelector).longValue();
         try {
             return clazz.getDeclaredConstructor(NativeLong.class).newInstance(new NativeLong(pointer));
         } catch (Exception e) {
@@ -94,7 +94,7 @@ public class NSArray<T extends NSObject> extends NSObject {
      * @see <a href="https://developer.apple.com/documentation/foundation/nsarray/1417555-objectatindex?language=objc"></a>
      */
     public T objectAtIndex(int index) {
-        var pointer = Foundation.INSTANCE.objc_msgSend(getId(), objectAtIndexSelector, index).longValue();
+        long pointer = Foundation.INSTANCE.objc_msgSend(getId(), objectAtIndexSelector, index).longValue();
         try {
             return clazz.getDeclaredConstructor(NativeLong.class).newInstance(new NativeLong(pointer));
         } catch (Exception e) {
