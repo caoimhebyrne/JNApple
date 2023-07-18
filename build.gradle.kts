@@ -19,6 +19,10 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
 }
 
+tasks.withType<JavaCompile>() {
+    options.release = 8
+}
+
 tasks.getByName<Test>("test") {
     onlyIf { environment.getOrDefault("JITPACK", "false") != "true" }
     useJUnitPlatform()

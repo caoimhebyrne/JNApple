@@ -22,7 +22,7 @@ public class UNUserNotificationCenter extends NSObject {
 
     // https://developer.apple.com/documentation/usernotifications/unusernotificationcenter/1649510-currentnotificationcenter?language=objc
     public static UNUserNotificationCenter currentNotificationCenter() {
-        var pointer = UserNotifications.INSTANCE.objc_msgSend(nativeClass, currentNotificationCenterSelector);
+        NativeLong pointer = UserNotifications.INSTANCE.objc_msgSend(nativeClass, currentNotificationCenterSelector);
         return new UNUserNotificationCenter(pointer);
     }
 }
