@@ -4,7 +4,7 @@ plugins {
     id("maven-publish")
 }
 
-group = "dev.cbyrne"
+group = "dev.caoimhe"
 version = "0.1.0"
 
 repositories {
@@ -20,6 +20,7 @@ dependencies {
 }
 
 tasks.getByName<Test>("test") {
+    onlyIf { environment.getOrDefault("JITPACK", "false") != "true" }
     useJUnitPlatform()
 }
 
